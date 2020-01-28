@@ -1,38 +1,22 @@
-import Ball from './ball'
+import CanvasPlayground from './playground';
 
 const canvas = document.querySelector('canvas');
-const canvasContext = canvas.getContext('2d');
+const ballRadius = 3;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+const playground = new CanvasPlayground(canvas, ballRadius);
+
 var framesPerSecond = 60;
 
-const mouse = {
-    x: innerWidth / 2,
-    y: innerHeight / 2
-  }
-  
 addEventListener('click', (event) => {
-    addABall(event.clientX,event.clientY);
+    playground.addABall(event.clientX,event.clientY);
 })
 addEventListener('resize', () => {
-  canvas.width = innerWidth
-  canvas.height = innerHeight
+    playground.reset(window.innerHeight, window.innerWidth);
 })
-// Animation Loop
-let balls;
+// Animation loop
 function animate() {
     setTimeout(animate, 1000/framesPerSecond)
-    canvasContext.clearRect(0, 0, canvas.width, canvas.height)
-    balls.forEach(ball => {
-        ball.animate();
-    });
+    playground.animatePlayground();
   }
-function init() {
-    balls = [];
-}
-  
-function addABall(x,y, width, height) {
-    balls.push(new Ball(canvas, x,y));
-}
-  init();
-  animate(); 
+animate(); 
