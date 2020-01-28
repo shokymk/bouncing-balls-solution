@@ -23,8 +23,7 @@ export default class CanvasPlayground {
       animatePlayground() {
         this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (var i = this.balls.length -1; i>=0; i--) {
-            var newBallPosition = this.balls[i].calculatePosition(this.canvas.width, this.canvas.height);
-            // console.log("new position: " + newBallPosition.x);
+            var newBallPosition = this.balls[i].calculatePosition();
             if(newBallPosition.toBeRemoved){
                this.balls.splice(i,1);
             }

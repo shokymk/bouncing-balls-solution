@@ -1,6 +1,6 @@
 import CanvasPlayground from './playground';
 
-const canvas = document.querySelector('canvas');
+const canvas = document.getElementById('playground');
 const ballRadius = 3;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
