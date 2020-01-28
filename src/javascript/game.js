@@ -1,5 +1,6 @@
 import CanvasPlayground from './playground';
 
+//setup
 const canvas = document.getElementById('playground');
 const ballRadius = 3;
 canvas.width = window.innerWidth;
@@ -7,7 +8,7 @@ canvas.height = window.innerHeight;
 const playground = new CanvasPlayground(canvas, ballRadius);
 
 var framesPerSecond = 60;
-
+//event listeners
 addEventListener('click', (event) => {
     playground.addABall(event.clientX,event.clientY);
 })
